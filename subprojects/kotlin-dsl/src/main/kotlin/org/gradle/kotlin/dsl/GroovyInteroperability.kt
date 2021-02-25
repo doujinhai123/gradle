@@ -264,6 +264,14 @@ class GroovyBuilderScopeForGroovyObject(override val delegate: GroovyObject) : G
 
     override fun String.invoke(vararg arguments: Any?): Any? =
         delegate.invokeMethod(this, arguments)
+
+    override fun getProperty(propertyName: String?): Any? {
+        return delegate.getProperty(propertyName)
+    }
+
+    override fun setProperty(propertyName: String?, newValue: Any?) {
+        return delegate.setProperty(propertyName, newValue)
+    }
 }
 
 
