@@ -37,11 +37,11 @@ application {
 
 // tag::distribution-spec[]
 val createDocs by tasks.registering {
-    val docs = file("$buildDir/docs")
+    def docs = layout.buildDirectory.dir("docs")
     outputs.dir(docs)
     doLast {
         docs.mkdirs()
-        File(docs, "readme.txt").writeText("Read me!")
+        docs.file("readme.txt").get().asFile.writeText("Read me!")
     }
 }
 

@@ -4,7 +4,7 @@ tasks.register<DocsGenerate>("generateHtmlDocs") {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
     description = "Generates the HTML documentation for this project."
     title = "Project docs"
-    outputDir = file("$buildDir/docs")
+    outputDir.set(layout.buildDirectory.file("docs"))
 }
 
 tasks.register("allDocs") {
